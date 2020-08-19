@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+    Link
+} from 'react-router-dom';
 import './App.css';
+import AuthPage from './AuthPage.js';
+import TodoListPage from './TodoListPage.js';
+import HomePage from './HomePage.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default class App extends Component {
+  state = {
+    token: null,
 }
 
-export default App;
+    render() {
+        return (
+            <div className="App">
+                <Router>
+                  <main>
+
+                  <div className="sidebar">
+                        {
+                            <>
+                            <Link to='/'>Home - Maybe delete this</Link>
+                            <Link to='/list'>List</Link>
+                            <Link to='/login'>Login</Link>
+                            </>
+                        }
+                  </div>
+                  
+                  <div className="content">
+                    <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <HomePage token={this.state.token} {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/login" 
+                            exact
+                            render={(routerProps) => <AuthPage token={this.state.token} {...routerProps} />} 
+                        />
+                        <Route 
+                          path="/list" 
+                          exact
+                          render={(routerProps) => <TodoListPage token={this.state.token} {...routerProps} />} 
+                        />
+                    </Switch>
+                    </div>
+
+                    </main>
+                </Router>
+            </div>
+        )
+    }
+}
+
