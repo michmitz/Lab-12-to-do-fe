@@ -19,8 +19,8 @@ export default class AuthPage extends Component {
         });
         console.log('user', user)
 
-        // this.props.handleToken(user.body.token);
-        // this.props.history.push('/list');
+        this.props.handleToken(user.body.token);
+        this.props.history.push('/list');
     }
 
     handleSignIn = async (e) => {
@@ -32,8 +32,8 @@ export default class AuthPage extends Component {
         });
 
         console.log('user', user)
-        // this.props.handleToken(user.body.token);
-        // this.props.history.push('/list');
+        this.props.handleToken(user.body.token);
+        this.props.history.push('/list');
     }
 
     render() {

@@ -16,6 +16,10 @@ export default class App extends Component {
     token: null,
 }
 
+handleToken = (token) => {
+  this.setState({ token: token })
+}
+
     render() {
         return (
             <div className="App">
@@ -24,6 +28,7 @@ export default class App extends Component {
 
                   <div className="sidebar">
                         {
+                            this.state.token &&
                             <>
                             <Link to='/'>Home - Maybe delete this</Link>
                             <Link to='/list'>List</Link>
@@ -37,17 +42,17 @@ export default class App extends Component {
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <HomePage token={this.state.token} {...routerProps} />} 
+                            render={(routerProps) => <HomePage handleToken={this.handleToken} token={this.state.token} {...routerProps} />} 
                         />
                         <Route 
                             path="/login" 
                             exact
-                            render={(routerProps) => <AuthPage token={this.state.token} {...routerProps} />} 
+                            render={(routerProps) => <AuthPage handleToken={this.handleToken} token={this.state.token} {...routerProps} />} 
                         />
                         <Route 
                           path="/list" 
                           exact
-                          render={(routerProps) => <TodoListPage token={this.state.token} {...routerProps} />} 
+                          render={(routerProps) => <TodoListPage handleToken={this.handleToken} token={this.state.token} {...routerProps} />} 
                         />
                     </Switch>
                     </div>
