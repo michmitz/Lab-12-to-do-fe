@@ -17,3 +17,42 @@ export function signIn(userData) {
         throw { error: e.message }
     }
 }
+
+export function fetchTodos() {
+    const token = localStorage.getItem('token');
+
+    try{
+        return request
+            .get(`${URL}/api/todos`)
+            .set('Authorization', token);
+    } catch(e) {
+        return { error: e.message }
+    }
+}
+
+// export function fetchTodo(id) {
+//     return request.get(`${URL}/gemstones/${id}`);
+// }
+
+export function createTodo(todoData) {
+    const token = localStorage.getItem('token');
+    return request
+        .post(`${URL}/api/todos`, todoData)
+        .set('Authorization', token);
+}
+
+// export function deleteGemstone(id) {
+//     const token = localStorage.getItem('token');
+
+//     return request
+//         .delete(`${URL}/api/todos/${id}`)
+//         .set('Authorization', token);
+// }
+
+export function updateTodo(id, updatedTodo) {
+    const token = localStorage.getItem('token');
+
+    return request
+        .put(`${URL}/api/todos/${id}`, updatedTodo)
+        .set('Authorization', token);
+}

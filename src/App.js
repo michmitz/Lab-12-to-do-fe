@@ -22,6 +22,12 @@ handleToken = (token) => {
   localStorage.setItem('token', token)
 }
 
+clearToken = () => {
+  this.setState({ token: '' })
+
+  localStorage.setItem('token', '')
+}
+
     render() {
         return (
             <div className="App">
@@ -32,9 +38,10 @@ handleToken = (token) => {
                         {
                             this.state.token &&
                             <>
-                            <Link to='/'>Home - Maybe delete this</Link>
-                            <Link to='/list'>List</Link>
-                            <Link to='/login'>Login</Link>
+                            <Link to='/list'>ToDo List</Link>
+                            <Link to='/login'>
+                              <button onClick={this.clearToken}>Log out</button>
+                            </Link>
                             </>
                         }
                   </div>
