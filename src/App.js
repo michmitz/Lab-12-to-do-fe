@@ -13,11 +13,13 @@ import HomePage from './HomePage.js';
 
 export default class App extends Component {
   state = {
-    token: null,
+    token: localStorage.getItem('token')
 }
 
 handleToken = (token) => {
   this.setState({ token: token })
+
+  localStorage.setItem('token', token)
 }
 
     render() {
