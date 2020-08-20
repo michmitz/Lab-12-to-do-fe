@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL;
+const URL = process.env.REACT_APP_API_URL || "https://pure-peak-25973.herokuapp.com/"
 
 export function signUp(userData) {
     try {
