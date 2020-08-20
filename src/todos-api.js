@@ -1,11 +1,11 @@
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL || "https://pure-peak-25973.herokuapp.com/"
+const URL = process.env.REACT_APP_API_URL;
 
 export function signUp(userData) {
     try {
         return request.post(`${URL}/auth/signup`, userData)
-    } catch (e) {
+    } catch(e) {
         throw { error: e.message }
     }
 }
@@ -13,7 +13,7 @@ export function signUp(userData) {
 export function signIn(userData) {
     try {
         return request.post(`${URL}/auth/signin`, userData)
-    } catch (e) {
+    } catch(e) {
         throw { error: e.message }
     }
 }
