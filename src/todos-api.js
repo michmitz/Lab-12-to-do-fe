@@ -30,9 +30,6 @@ export function fetchTodos() {
     }
 }
 
-// export function fetchTodo(id) {
-//     return request.get(`${URL}/gemstones/${id}`);
-// }
 
 export function createTodo(todoData) {
     const token = localStorage.getItem('token');
@@ -41,7 +38,7 @@ export function createTodo(todoData) {
         .set('Authorization', token);
 }
 
-// export function deleteGemstone(id) {
+// export function deleteTodo(id) {
 //     const token = localStorage.getItem('token');
 
 //     return request

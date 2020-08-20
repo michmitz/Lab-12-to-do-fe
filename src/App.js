@@ -39,7 +39,7 @@ clearToken = () => {
                             this.state.token &&
                             <>
                             <Link to='/list'>ToDo List</Link>
-                            <Link to='/login'>
+                            <Link to='/'>
                               <button onClick={this.clearToken}>Log out</button>
                             </Link>
                             </>

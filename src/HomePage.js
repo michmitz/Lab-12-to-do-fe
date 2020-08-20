@@ -5,9 +5,9 @@ import './App.css';
 export default class HomePage extends Component {
     render() {
         return (
-            <div>
-                Welcome to your ToDo list! Click the link to log in.
-                <Link to='/login'>Login</Link>
+            <div className="homepage">
+                Welcome to your Todo list! Click the link to log in.
+                <Link className="login-link" to='/login'>Login</Link>
             </div>
         )
     }
